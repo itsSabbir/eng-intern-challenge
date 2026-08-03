@@ -1,5 +1,9 @@
 # Eng Intern Challenge Fall - Winter 2025
 
+> **Fork status:** This is an archival/practice copy with no hosted CI or submission integration.
+> The Shopify submission-automation instructions below are retained as historical upstream
+> context; they do not describe services operated by this fork. Run the language tests locally.
+
 # **Note: In order for our submission automation to function correctly:**
 1. **Your Github email must match the email you submitted your Application with (if your Github email is different, we recommend creating a new Github profile with the email you created your application with)**
 2. **Have your email set to public on your Github Profile**
@@ -61,17 +65,33 @@ Braille (*/breɪl/ **BRAYL***) is a tactile writing system used by people who ar
 2. Create a new Branch in your repo where you will be pushing your code to.
 3. Choose which programming language you wish to complete the challenge with.
     - Navigate to the folder of that programming language and complete your work in the `translator` file found inside. ie: `ruby/translator.rb`
-    - **Do not** edit the test file in the folder. Tests will only work as intended after you have submitted a PR.
+    - **Do not** edit the test file in the folder. Run that language's test locally before submitting a PR.
     - You'll find a separate `README.md` in that folder with language specific instructions.
 4. Ensure your application is executable from the command-line by running your `translator` file.
 5. Feel free to run the test found in your language folder to ensure your code is correct
 6. Your application must output ***only*** the Braille/English string.
     - ie: `O.....` ***not*** `The Braille text is: O.....`
 
+## Local verification
+
+This repository intentionally has no hosted CI. Run the command for the language you changed
+before opening a PR:
+
+```bash
+(cd go && go test ./...)
+(cd javascript && npm ci && npm test)
+(cd python && python translator.test.py)
+(cd ruby && bundle install && bundle exec rspec translator.test.rb)
+(cd typescript && npm ci && npm test)
+```
+
+The exercises are intentionally incomplete on the template branch, so a language test may fail
+until its translator implementation is completed.
+
 ## Submission
 Upon completion of the challenge, create a PR of your work and compare it against the original Assessment Repo's main branch. Submit a link to your PR in the "Take Home Submission Link" which was included in the Technical Challenge email instructions.
 
-**Note: In order for our submission automation to function correctly:**
+**Original challenge note: in order for Shopify's submission automation to function correctly:**
 - Your Github email must match the email you submitted your Application with (if your Github email is different, we recommend creating a new Github profile with the email you created your application with)
 - Have your email set to public on your Github Profile
 - Do not apply any labels on your PR. We will mark your PR as `reviewed` with a label when it has been so. Marking this yourself will cause your PR to be skipped.
